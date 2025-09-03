@@ -31,6 +31,23 @@ func main (){
 		})
 	})
 
+	router.GET("/students/:id", func (c *gin.Context){
+		idStr := c.Param("id")
+		id, err := strconv.Atoi(idStr)
+
+	  if err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{
+            "error": "Invalid Student ID",
+        })
+        return 
+    	}
+
+		c.JSON(http.StatusOK, gin.H{
+			"data": data.Students[id],
+		})
+	})
+
+	
 	router.POST("/students", func (c *gin.Context)  {
 		var input CreateStudentInput
 		var newStudent data.Student
