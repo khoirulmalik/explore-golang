@@ -4,7 +4,7 @@ type Student struct {
 	ID      int    `json:"id"`
 	Nama    string `json:"nama"`
 	NIM     string `json:"nim"`
-	Jurusan string `json"jurusan"`
+	Jurusan string `json:"jurusan"`
 }
 
 var Students = []Student{
